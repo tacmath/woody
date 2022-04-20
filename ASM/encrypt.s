@@ -4,6 +4,7 @@ section .data
 section .text
 	global encrypt
 
+; char	*encrypt(char *data, int dataSize, char	*key, int keySize)
 encrypt:
 	push rbp
 	mov rbp, rsp
