@@ -26,26 +26,26 @@ print_woody:
 woody: db "....WOODY....", 10
 
 decrypt:
-    mov rax, rsi
-    mov r12, rdx
-    xor rdx, rdx
+    	mov rax, rsi
+    	mov r12, rdx
+    	xor rdx, rdx
 	mov r13, rcx
-    div r13
-    mov r13, rdx
-    mov rdx, r12
+    	div r13
+    	mov r13, rdx
+    	mov rdx, r12
 	loop:
 	cmp r13, 0
 	jnz nochange
 	mov r13, rcx
 	nochange:
-    dec r13
-    dec rsi
+    	dec r13
+    	dec rsi
 	mov bl, byte [rdi+rsi-1]
-    add bl, byte [rdx+r13]
+    	add bl, byte [rdx+r13]
 	sub [rdi+rsi], bl
 	cmp rsi, 1
 	jnz loop
-    mov bl, byte [rdx]
+    	mov bl, byte [rdx]
 	sub [rdi], bl
 fin:
 	pop rdi
