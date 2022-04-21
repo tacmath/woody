@@ -46,9 +46,7 @@ int writeBody(t_fileData *fileData, t_fileData *oldFileData) {
 
     n = 0;
     while (++n < fileData->head.e_shnum) {
-        if (!ft_strcmp(&(fileData->ShStrTab[fileData->shead[n].sh_name]), ".bss")
-            /*&& !ft_strcmp(&(fileData->ShStrTab[fileData->shead[n + 1].sh_name]), ".comment")
-            && fileData->shead[n].sh_size < fileData->shead[n + 1].sh_size*/)          /*.bss n'est pas écrit mème avec une taille > .comment*/
+        if (!ft_strcmp(&(fileData->ShStrTab[fileData->shead[n].sh_name]), ".bss"))
             n++;
         if (!ft_strcmp(&(fileData->ShStrTab[fileData->shead[n].sh_name]), ".text"))
             encodeSection(fileData, oldFileData, n);
